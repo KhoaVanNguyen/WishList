@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainVC
 //  WishList
 //
 //  Created by Khoa on 1/20/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

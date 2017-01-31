@@ -12,4 +12,9 @@ import CoreData
 
 public class Item: NSManagedObject {
 
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        self.created = NSDate()
+    }
 }
