@@ -230,6 +230,9 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="Nzr-pX-b3f">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="xsG-Ai-rUi">
                             <color key="tintColor" red="1" green="0.018327252346971967" blue="0.154010425559859" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="IzE-xH-dar" id="9YY-N2-hfj"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

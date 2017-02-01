@@ -129,6 +129,14 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         
     }
     
+    @IBAction func deletePressed(_ sender: Any) {
+        if editItem != nil{
+            
+            context.delete(editItem!)
+            ad.saveContext()
+        }
+        _ = self.navigationController?.popViewController(animated: true)
+    }
     
 
 }
