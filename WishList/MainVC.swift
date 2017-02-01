@@ -18,8 +18,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        generateData()
+        // generateData()
         attempFetch()
         
     }
@@ -64,8 +63,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
         
         fetchRequest.sortDescriptors = [dateSort]
+        
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         self.controller = controller
+        
+        self.controller.delegate = self
         
         do {
             try controller.performFetch()
