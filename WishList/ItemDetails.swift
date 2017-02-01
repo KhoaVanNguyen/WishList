@@ -16,6 +16,7 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
     @IBOutlet weak var titleTF: UITextField!
     @IBOutlet weak var itemImage: UIImageView!
     
+    var editItem : Item?
     var stores = [Store]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,30 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         
         
         getStores()
+        
+        if let item = editItem{
+            
+            titleTF.text = item.title
+            priceTF.text = "\(item.price)"
+            detailTF.text = item.details
+            
+            if let itemStore = item.toStore{
+                 var index = 0
+                for store in stores{
+                    
+                    if store.name == itemStore.name{
+                        pickerView.selectRow(index, inComponent: 0, animated: true)
+                        break
+                    }
+                    index += 1
+                    
+                    
+                }
+
+            }
+            
+            
+        }
         
     }
 
@@ -63,6 +88,20 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
     
     
     @IBAction func saveBtnPressed(_ sender: Any) {
+        
+        
+        var item : Item!
+        
+        if editItem != nil{
+            
+            // REVIEW : Why coredata can do this? -> Reference type when prepareSegue
+            item = editItem
+            
+        }else {
+            item = Item(context: context)
+        }
+        
+        
         guard let title = titleTF.text, title != "" else {
             return
         }
@@ -74,13 +113,11 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         }
         
         
-        let item = Item(context: context)
-        
         item.title = title
         item.price = Float(( price as NSString ).doubleValue)
         item.details = detail
       
-       // item.toStore = stores[pickerView.selectedRow(inComponent: 0)]
+        item.toStore = stores[pickerView.selectedRow(inComponent: 0)]
         
         ad.saveContext()
         
@@ -88,12 +125,7 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
        _ = self.navigationController?.popViewController(animated: true)
         
         
-        
-        
-        
-        
-        
-        
+
         
     }
     

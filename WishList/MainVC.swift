@@ -13,6 +13,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
     var controller : NSFetchedResultsController<Item>!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +54,28 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         return 150
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // REVIEW , vi ko co Item array nen phai xai cai khac
+        
+        if let objs = controller.fetchedObjects, objs.count > 0{
+            let item = objs[indexPath.row]
+            performSegue(withIdentifier: "ItemDetailVC", sender: item)
+        }
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let itemDetailVC = segue.destination as? ItemDetails{
+            if let item = sender as? Item{
+                itemDetailVC.editItem = item
+            }
+        }
+    }
+    
+    
     func configureCell( cell : ItemCell, indexPath : IndexPath ){
         let item = controller.object(at: indexPath)
         cell.configureCell(item: item)
@@ -128,7 +152,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             break
         
         }
-        
         
     }
     
