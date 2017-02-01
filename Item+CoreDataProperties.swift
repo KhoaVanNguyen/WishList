@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  WishList
 //
-//  Created by Khoa on 1/31/17.
+//  Created by Khoa on 2/1/17.
 //  Copyright © 2017 Khoa. All rights reserved.
 //
 
@@ -17,9 +17,10 @@ extension Item {
     }
 
     @NSManaged public var created: NSDate?
-    @NSManaged public var title: String?
     @NSManaged public var details: String?
     @NSManaged public var price: Float
+    @NSManaged public var title: String?
     @NSManaged public var toImage: Image?
+    @NSManaged public var toStore: Store?
 
 }

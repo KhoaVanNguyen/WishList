@@ -28,23 +28,6 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         pickerView.dataSource = self
         
         
-//        let store1 = Store(context: context)
-//        store1.name = "Lazada"
-//        
-//        let store2 = Store(context: context)
-//        store2.name = "Sendo"
-//        
-//        let store3 = Store(context: context)
-//        store3.name = "Tiki"
-//        
-//        let store4 = Store(context: context)
-//        store4.name = "5s"
-//        
-//        let store5 = Store(context: context)
-//        store5.name = "Prazenta"
-//        
-//        
-//        ad.saveContext()
         getStores()
         
     }
@@ -67,7 +50,8 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         
         do {
             
-            try self.stores = context.fetch(fetchRequest)
+            self.stores = try context.fetch(fetchRequest)
+            self.pickerView.reloadAllComponents()
             
         }catch{
             
@@ -95,8 +79,8 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         item.title = title
         item.price = Float(( price as NSString ).doubleValue)
         item.details = detail
-        
-        item.
+      
+       // item.toStore = stores[pickerView.selectedRow(inComponent: 0)]
         
         ad.saveContext()
         

@@ -11,6 +11,7 @@
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="toItem" inverseEntity="Image" syncable="YES"/>
+        <relationship name="toStore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" syncable="YES"/>
     </entity>
     <entity name="ItemType" representedClassName=".ItemType" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,9 +23,9 @@
         <relationship name="toItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="169" positionY="-45" width="128" height="118"/>
+        <element name="Image" positionX="286" positionY="387" width="128" height="88"/>
+        <element name="Item" positionX="169" positionY="-45" width="128" height="133"/>
         <element name="ItemType" positionX="-81" positionY="-48" width="128" height="73"/>
         <element name="Store" positionX="-54" positionY="306" width="128" height="88"/>
-        <element name="Image" positionX="286" positionY="387" width="128" height="88"/>
     </elements>
 </model>

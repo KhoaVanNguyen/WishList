@@ -2,7 +2,7 @@
 //  Image+CoreDataProperties.swift
 //  WishList
 //
-//  Created by Khoa on 1/31/17.
+//  Created by Khoa on 2/1/17.
 //  Copyright © 2017 Khoa. All rights reserved.
 //
 

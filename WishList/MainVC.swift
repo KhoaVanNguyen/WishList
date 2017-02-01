@@ -15,6 +15,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     var controller : NSFetchedResultsController<Item>!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -65,9 +66,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         fetchRequest.sortDescriptors = [dateSort]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+
+        // REVIEW : Why self.delegate doesn't work???
+        controller.delegate = self
+        
         self.controller = controller
         
-        self.controller.delegate = self
         
         do {
             try controller.performFetch()
@@ -83,15 +87,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.endUpdates()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+       
         
         switch type {
-        case .insert:
             
-            if let indexPath = indexPath{
+        case .insert:
+            print("I'm inserting")
+            if let indexPath = newIndexPath{
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
             
@@ -119,7 +126,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             }
             
             break
-                }
+        
+        }
+        
+        
     }
     
     func generateData(){
@@ -140,12 +150,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         item3.details = "I want to travel alone with this bicyle"
         item3.price = 2000
         
-        do {
-            try context.save()
-        }
-        catch{
-            print("Error to save context")
-        }
+        
+        
+        // REVIEW : difference ad.saveContext vs try context.save()
+        ad.saveContext()
         
     }
     
