@@ -36,7 +36,7 @@
                                 <rect key="frame" x="10" y="124" width="300" height="346"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="183" id="zAh-rt-TZ9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="183" id="zAh-rt-TZ9" customClass="ItemCell" customModule="WishList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="300" height="183"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zAh-rt-TZ9" id="Iwy-jh-GaF">
@@ -92,6 +92,15 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesgin" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesgin" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="itemDetailLbl" destination="G0x-9D-D4y" id="A0w-3e-DGg"/>
+                                            <outlet property="itemImage" destination="kMd-X8-IXF" id="MnR-ag-lD7"/>
+                                            <outlet property="itemTitleLbl" destination="si3-eW-Nj1" id="g0V-8u-hPg"/>
+                                            <outlet property="priceLbl" destination="rLW-fn-Qn2" id="Den-Ya-l5P"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -112,6 +121,10 @@
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segment" destination="J6j-8i-o92" id="h7p-Bs-378"/>
+                        <outlet property="tableView" destination="8cw-zt-9TT" id="9zz-5U-cSw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

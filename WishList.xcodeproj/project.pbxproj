@@ -24,6 +24,7 @@
 		D2F55C341E4070D300A0EF91 /* Store+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F55C2C1E4070D300A0EF91 /* Store+CoreDataClass.swift */; };
 		D2F55C351E4070D300A0EF91 /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F55C2D1E4070D300A0EF91 /* Store+CoreDataProperties.swift */; };
 		D2F55C381E407D6C00A0EF91 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F55C371E407D6C00A0EF91 /* MaterialView.swift */; };
+		D2F55C3A1E4080D800A0EF91 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F55C391E4080D800A0EF91 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		D2F55C2C1E4070D300A0EF91 /* Store+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D2F55C2D1E4070D300A0EF91 /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2F55C371E407D6C00A0EF91 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		D2F55C391E4080D800A0EF91 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +119,9 @@
 		D2651D431E31944600C156E5 /* WishList */ = {
 			isa = PBXGroup;
 			children = (
+				D2651D441E31944600C156E5 /* AppDelegate.swift */,
 				D2F55C361E407D5D00A0EF91 /* Views */,
 				D2F55C141E406EA700A0EF91 /* Models */,
-				D2651D441E31944600C156E5 /* AppDelegate.swift */,
 				D2651D461E31944600C156E5 /* MainVC.swift */,
 				D2651D481E31944600C156E5 /* Main.storyboard */,
 				D2651D4E1E31944600C156E5 /* Assets.xcassets */,
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				D2F55C371E407D6C00A0EF91 /* MaterialView.swift */,
+				D2F55C391E4080D800A0EF91 /* ItemCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F55C3A1E4080D800A0EF91 /* ItemCell.swift in Sources */,
 				D2F55C311E4070D300A0EF91 /* Item+CoreDataProperties.swift in Sources */,
 				D2F55C301E4070D300A0EF91 /* Item+CoreDataClass.swift in Sources */,
 				D2F55C331E4070D300A0EF91 /* ItemType+CoreDataProperties.swift in Sources */,
