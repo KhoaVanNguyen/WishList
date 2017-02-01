@@ -204,10 +204,21 @@
                                     <action selector="saveBtnPressed:" destination="IzE-xH-dar" eventType="touchUpInside" id="d5M-9S-c5N"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjI-SB-KVJ">
+                                <rect key="frame" x="16" y="88" width="120" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="COw-xs-syi"/>
+                                    <constraint firstAttribute="height" constant="100" id="Fhi-r4-hzq"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="chooseImagePressed:" destination="IzE-xH-dar" eventType="touchUpInside" id="nkm-KN-KMt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hy4-gy-asv" firstAttribute="leading" secondItem="fsm-fu-5xH" secondAttribute="leading" constant="16" id="6f1-vG-emV"/>
+                            <constraint firstItem="tjI-SB-KVJ" firstAttribute="leading" secondItem="fsm-fu-5xH" secondAttribute="leading" constant="16" id="8rQ-q4-suY"/>
                             <constraint firstItem="haz-Vn-MnF" firstAttribute="top" secondItem="ugP-Wu-AtX" secondAttribute="bottom" constant="15" id="A6x-An-FI5"/>
                             <constraint firstAttribute="trailing" secondItem="j4Z-VW-wpB" secondAttribute="trailing" constant="15" id="B1v-V6-005"/>
                             <constraint firstItem="ooB-hQ-GIi" firstAttribute="top" secondItem="9M4-9y-9o0" secondAttribute="bottom" constant="8" id="HoV-a4-nz5"/>
@@ -219,6 +230,7 @@
                             <constraint firstItem="Uhf-vK-Gzm" firstAttribute="top" secondItem="ooB-hQ-GIi" secondAttribute="bottom" constant="10" id="ajn-8s-Ow9"/>
                             <constraint firstItem="ooB-hQ-GIi" firstAttribute="leading" secondItem="fsm-fu-5xH" secondAttribute="leading" id="lMP-NR-Zpi"/>
                             <constraint firstItem="9M4-9y-9o0" firstAttribute="centerX" secondItem="fsm-fu-5xH" secondAttribute="centerX" id="lYE-ni-fbw"/>
+                            <constraint firstItem="tjI-SB-KVJ" firstAttribute="top" secondItem="ugP-Wu-AtX" secondAttribute="bottom" constant="24" id="o0L-9X-4qQ"/>
                             <constraint firstItem="Uhf-vK-Gzm" firstAttribute="leading" secondItem="fsm-fu-5xH" secondAttribute="leading" id="o5N-i6-uCq"/>
                             <constraint firstItem="VYt-BT-JNe" firstAttribute="top" secondItem="Uhf-vK-Gzm" secondAttribute="bottom" id="tJH-ee-Hd0"/>
                             <constraint firstItem="hy4-gy-asv" firstAttribute="top" secondItem="ugP-Wu-AtX" secondAttribute="bottom" constant="15" id="ygr-P9-c69"/>

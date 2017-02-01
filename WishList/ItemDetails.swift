@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreData
-class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource{
+class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource,
+UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var detailTF: UITextField!
@@ -16,6 +17,7 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
     @IBOutlet weak var titleTF: UITextField!
     @IBOutlet weak var itemImage: UIImageView!
     
+    var imagePicker : UIImagePickerController!
     var editItem : Item?
     var stores = [Store]()
     override func viewDidLoad() {
@@ -28,6 +30,8 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         pickerView.delegate = self
         pickerView.dataSource = self
         
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         getStores()
         
@@ -36,6 +40,8 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
             titleTF.text = item.title
             priceTF.text = "\(item.price)"
             detailTF.text = item.details
+            
+            itemImage.image = item.toImage?.image as? UIImage
             
             if let itemStore = item.toStore{
                  var index = 0
@@ -92,6 +98,10 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         
         var item : Item!
         
+        let picture = Image(context: context)
+        
+        picture.image = itemImage.image
+        
         if editItem != nil{
             
             // REVIEW : Why coredata can do this? -> Reference type when prepareSegue
@@ -101,7 +111,7 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
             item = Item(context: context)
         }
         
-        
+        item.toImage = picture
         guard let title = titleTF.text, title != "" else {
             return
         }
@@ -138,5 +148,17 @@ class ItemDetails: UIViewController , UIPickerViewDelegate, UIPickerViewDataSour
         _ = self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func chooseImagePressed(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
 
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            itemImage.image = img
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
